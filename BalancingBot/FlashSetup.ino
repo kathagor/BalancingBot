@@ -19,7 +19,7 @@ void LoadingSettings()
 	{
 
 		PIDSpeed.SetTunings(_PIDSpeedSettings.kp, _PIDSpeedSettings.ki, _PIDSpeedSettings.kd);
-		PIDSpeed.SetTunings(_PIDAngleSettings.kp, _PIDAngleSettings.ki, _PIDAngleSettings.kd);
+		PIDAngle.SetTunings(_PIDAngleSettings.kp, _PIDAngleSettings.ki, _PIDAngleSettings.kd);
 
 		_PIDSettingValid = true;	
 	}
