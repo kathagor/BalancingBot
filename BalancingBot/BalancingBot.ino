@@ -5,12 +5,21 @@
 */
 
 
+#include <Wire.h>
 #include <FlashStorage.h>
 #include <PID_v1.h>
 #include <Kalman.h>
 #include <UDPMessengerLib.h>
 
 
+#define PIN_DIR_DRV1 0
+#define PIN_STEP_DRV1 1
+
+#define PIN_DIR_DRV2 2
+#define PIN_STEP_DRV2 3
+
+#define PIN_DRV_SLEEP 4
+#define PIN_DRV_RESET 5
 
 
 typedef struct 
@@ -32,6 +41,7 @@ typedef struct
 	bool WifiMode;
 }WLANSettings;
 
+UDPMessenger udpMessenger;
 
 WLANSettings _WLANSettings;
 
@@ -56,6 +66,10 @@ void setup()
 {
 
 	LoadingSettings();
+	SetupDrivers();
+
+	udpMessenger.InitMessenger(_WLANSettings.SSID, _WLANSettings.key, _WLANSettings.Port, _WLANSettings.WifiMode);
+
 
 
 	//Setup Objects and variables
@@ -88,42 +102,6 @@ void loop()
 	// calculate Speed
 	
 }
-
-
-#pragma region UDPMessengerlib Callbacks
-
-//Callback from UDPMessengerlib
-//Set values Kp, Ki & kd for PIDLoop1
-void SetPID1Parameter()
-{}
-
-//Callback from UDPMessengerlib
-//Get values Kp, Ki & kd for PIDloop1
-void GetPID1Parameter()
-{}
-
-//Callback from UDPMessengerlib
-//Set values Kp, Ki & kd for PIDloop2
-void SetPID2Parameter()
-{}
-
-//Callback from UDPMessengerlib
-//Get values Kp, Ki & kd for PIDloop2
-void GetPID2Parameter()
-{}
-
-//Callback from UDPMessengerlib
-//Set Wlan parameters (SSID, key)
-void SetWLANParameter()
-{}
-
-//Callback from UDPMessengerlib
-//Set control values, i.e. speed, turnrate, motors enabled...
-void RemoteControl()
-{}
-
-#pragma endregion
-
 
 
 

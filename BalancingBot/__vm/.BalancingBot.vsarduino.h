@@ -59,5 +59,9 @@ extern "C" void __cxa_pure_virtual() {;}
 #undef cli
 #define cli()
 #include "BalancingBot.ino"
+#include "DRVControl.ino"
 #include "FlashSetup.ino"
+#include "I2C.ino"
+#include "IMU.ino"
+#include "UDPcomm.ino"
 #endif

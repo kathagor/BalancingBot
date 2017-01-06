@@ -17,6 +17,10 @@
   <ItemGroup>
     <None Include="BalancingBot.ino" />
     <None Include="FlashSetup.ino" />
+    <None Include="I2C.ino" />
+    <None Include="IMU.ino" />
+    <None Include="DRVControl.ino" />
+    <None Include="UDPcomm.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.BalancingBot.vsarduino.h">
